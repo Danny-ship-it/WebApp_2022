@@ -16,7 +16,7 @@ const userUl = document.getElementById("users");
 
 const createTableUI = (users) => {
   userUl.innerHTML = null;
-  userUl.innerHTML += `<li><span>Id</span><span>Navn</span><span>Alder</span></li>`;
+  userUl.innerHTML += `<li><span><span>Id</span>Navn</span><span>Alder</span></li>`;
   for (const user of users) {
     userUl.innerHTML += `<li><span>${user.id}</span><span>${user.name}</span><span>${user.age}</span></li>`;
   }
