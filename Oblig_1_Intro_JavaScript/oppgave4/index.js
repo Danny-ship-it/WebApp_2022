@@ -1,11 +1,41 @@
-import "./styles.css";
+//import "./styles.css";
 
-// TODO: Bruk getElementById til å hente HTML-elementene med #id
+// TODO: Bruk getElementById til å hente HTML med #id
 // TODO: Bruk querySelector til å hente knappen
+const numbersUl = "";
+const guessUl = "";
+const button = "";
 // TODO: Lag en liste med tallene som skal sorteres
-// TODO: Lag en funksjon for å skrive ut tallene som skal sorteres
-// TODO: Lag en funksjon for å skrive ut input felter bruker kan skrive tallene i
-// TODO: Lag en funksjon for å hente ut det brukeren har skrevet inn
-// TODO: Lag en funksjon for å sjekke om tallene er sortert riktig av bruker
-// TODO: Lag en funksjon som "lager UI" --Nødvendig?
-// TODO: Lytt til 'click'-event og trigg checkNumberSeq ved klikk
+const numbers = [];
+
+const getGuess = () => {
+  // TODO: Bruk querySelectorAll på guessUl for å hente ut alle input feltene
+  const answers = "";
+  // TODO: Bruk .map for å hente ut verdiene i input feltene
+  return Array.from(answers).map();
+};
+
+const checkNumberSeq = () => {
+  const guess = getGuess();
+  let isCorrect = numbers.sort().join("") === guess.join("");
+  if (isCorrect) {
+    alert("Du sorterte riktig");
+  }
+};
+
+const addInputUI = () => {
+  // TODO: Bruk for-of (eller vanlig for-løkke) og guessUl til å lage li-elementer med input elementer for å kunne skrive inn hva som skal sorteres
+};
+
+const addNumbersUI = () => {
+  // TODO: Bruk for-of og numbersUl til å lage li-elementer med tallene som skal sorteres
+};
+
+const createUI = () => {
+  addNumbersUI();
+  addInputUI();
+};
+
+createUI();
+
+button.addEventListener("click", checkNumberSeq);
