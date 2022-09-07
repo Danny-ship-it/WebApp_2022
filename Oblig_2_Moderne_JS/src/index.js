@@ -255,9 +255,8 @@ try {
     // Adjust the code to let the test succeed.
 
     // const a = 'Oslo' + 985;
-	const a = 'Oslo' + 985;
-	const [name, age] = a;
-
+	const a = ['Oslo', 985];
+	
     // Don't make changes below this line
 	
     function f([name, age]) {
@@ -273,28 +272,30 @@ try {
   })();
 	
 
-  /*
+  
   (function UseParameterDestructuring2() {
     // Adjust the code to let the test succeed.
 
-    const a = 'Oslo' + 985;
+    const a = {name:'Oslo', age:985};
 
     // Don't make changes below this line
 
     function f({ name, age }) {
-      expect(name).toBe('Oslo');
-      expect(age).toBe(985);
-    }
+		test( 'UseArrayDestructuring1', ()=> { 
+      		expect(name).toBe('Oslo');
+      		expect(age).toBe(985);
+		});
+	}
 
     f(a);
 
     solved++;
   })();
-	*/
+	
 
   /// Property shorthand ///
 
-  /*
+  
 	(function UsePropertyShorthand() {
 		const name = 'Oslo';
 		const age = 985;
@@ -302,40 +303,41 @@ try {
 		
 		// Remove all unnecesary syntax to let the test pass.
 		let city = {
-			name: name,
-			age: age,
+			name,
+			age,
 			dutch: !norwegian
 		};
 
 		// Don't make changes below this line	
-		
-		expect(city).toEqual({name: 'Oslo', age: 985, dutch: false});
-		
+		test( 'UseArrayDestructuring1', ()=> { 
+			expect(city).toEqual({name: 'Oslo', age: 985, dutch: false});
+		});
 		solved++;
 	})();
-	*/
+	
 
   /// Object Spread Properties (ES2018) ///
 
-  /*
+  
 	(function UseObjectSpreadProperties1() {
 		let obj = { val: 1 };
 		
 		// Use Object Spread Properties to let the tests succeed.
-		let copy = obj;
+		let copy = {...obj};
 
 		// Don't make changes below this line	
+		test( 'UseObjectSpreadProperties1', ()=> { 
+			expect(copy.val).toBe(1);
 		
-		expect(copy.val).toBe(1);
-		
-		copy.val = 2;
-		expect(obj.val).toBe(1);
+			copy.val = 2;
+			expect(obj.val).toBe(1);
+		})
 
 		solved++;
 	})();
-	*/
+	
 
-  /*
+  
 	(function UseObjectSpreadProperties2() {
 		let obj1 = { a: 100, b: 2, c: 300 };
 		let obj2 = { b: 0, d: 100, e: 200};
@@ -345,19 +347,19 @@ try {
 		// - Do NOT use Object.assign()
 		// - Do use object spread properties
 		// - Think about the order!
-		let result = { obj1, obj2, obj3 };
+		let result = { ...obj1, ...obj3, ...obj2 };
 
 		// Don't make changes below this line	
-		
-		expect(result.a).toBe(100);
-		expect(result.b).toBe(0);
-		expect(result.c).toBe(4);
-		expect(result.d).toBe(100);
-		expect(result.e).toBe(200);
-
+		test( 'UseObjectSpreadProperties1', ()=> {
+			expect(result.a).toBe(100);
+			expect(result.b).toBe(0);
+			expect(result.c).toBe(4);
+			expect(result.d).toBe(100);
+			expect(result.e).toBe(200);
+		})
 		solved++;
 	})();
-	*/
+	
 
   ////// BONUS //////
 
