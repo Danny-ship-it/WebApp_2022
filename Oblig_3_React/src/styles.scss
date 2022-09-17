@@ -2,3 +2,14 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.flex-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.oppgave {
+  color: red;
+  font-style: italic;
+}

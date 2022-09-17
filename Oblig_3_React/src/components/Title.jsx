@@ -6,11 +6,11 @@ Remember to pass the prop from MyComponent to Title.
 */
 
 export default function Title( props ) {
-    
+
     const { title } = props;
     return(
         <>
-        <Title>{title} </Title>
+        <h1>{title}</h1>
         </>
     )
 
