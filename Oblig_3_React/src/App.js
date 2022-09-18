@@ -17,21 +17,57 @@ Listen to change-event on this field
 console.log("change") when writing in this input.
 */
 
+/*
+/// 10. Make the input field controlled (state)
+Use useState to store the input value. And add the value={state} to the input field to make it (controlled).
+
+/// 11. Combine the button and input
+When clicking the button above alert (or console.log) the content of the inputfield.
+
+/// 12. Refactor (move) button and input
+Create an Alert component in the components folder
+Use this in App.js
+Move the <input>, <button> and state from above to this component
+
+/// 13. Callback (lift state) (sending a functions as a prop)
+Add const [inputValue, setInputValue] = useState('') in App.js.
+Add <p>{inputValue}</p> to App.js
+
+Send setInputValue function as a prop to <Alert> from App.js.
+
+By using this prop you should be able to update the value of inputValue in App.js,
+ when we are writing in the <input> inside <Alert>. You can now remove the internal in <Alert>.
+
+
+*/
+
 
 
 import Food from "./components/Food";
 import MyComponent, { MyComponentWithChildProp, MyComponentWithProps } from "./components/MyComponent";
 import Title from "./components/Title";
 import { Wrapper } from "./components/Wrapper";
+import { useState } from "react";
+import Alert from "./components/Alert";
 
 
 const food = ['Pizza', 'Hamburger', 'Coke'];
 
-function handleClick(e) {
-  console.log("Clicked"); // skriver clicked TALLVERDI i consolen
-}
+// function handleClick(e) {
+//   console.log("Clicked"); // skriver clicked TALLVERDI i consolen
+// }
 
-const App = () => (
+//const App = () => (
+
+export default function App() {
+
+  const [state, setState] = useState("change me");
+  const [stateButton, setStateButton] = useState("I am different");
+  const [inputValue, setInputValue] = useState('nothing happened yet..');
+
+
+
+  return (
 
   <div>
     <p className="oppgave">Read the README.md to see the tasks</p>
@@ -58,14 +94,34 @@ const App = () => (
       <p className="oppgave">O7: Render list with a food component:</p> 
       <Food food = {food} /> 
 
-      <p className="oppgave">O8: Enkel button og onClick handler:</p>
+      <p className="oppgave">O8: Enkel button og onClick handler console.log:</p>
       <button onClick={() => console.log("Clicked")}>Click me</button>
 
-      <p className="oppgave">O9: Enkel input og onChange handler:</p>
+      <p className="oppgave">O9: Enkel input og onChange handler console.log</p>
       <input type="text" onChange={(e) => console.log("change", e.target.value)} />
+
+      <p className="oppgave">10; Make the input field controlled (state: {state})</p>
+      <input type="text" 
+        onChange={(e) => setState(e.currentTarget.value)} 
+        value = {state}
+      />
+      
+      <p className="oppgave">11: Combine the button and input:</p>
+      <input type="text" 
+        onChange={(e) => setStateButton(e.currentTarget.value)} 
+        value = {stateButton}
+      />
+      <button onClick={() => {console.log({stateButton}); alert({stateButton})}}>Click me</button>
+
+      <p className="oppgave">12: Refactor (move) button and input:</p>
+      <Alert/>
+
+      <p className="oppgave">13: Callback (lift state) (sending a functions as a prop):</p>
+      <p>{inputValue}</p> 
   </div>
 );
+}
 
-export default App;
+//export default App;
 
 // <MyComponentWithChildProp text = "It works!" />
