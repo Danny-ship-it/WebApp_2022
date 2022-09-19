@@ -12,7 +12,7 @@ export default function Alert() {
         onChange={(e) => setStateButton(e.currentTarget.value)} 
         value = {stateButton}
         />
-        <button onClick={() => {console.log({stateButton}); alert({stateButton})}}>Click me</button>
+        <button onClick={() => {console.log(stateButton); alert(stateButton)}}>Click me</button>
     </>
     )
 
